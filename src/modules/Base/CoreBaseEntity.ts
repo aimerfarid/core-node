@@ -3,7 +3,7 @@ import { PrimaryColumn } from "typeorm";
 import { AuditEntity } from "../audit/AuditEntity";
 
 @InterfaceType()
-export abstract class BaseEntity extends AuditEntity {
+export abstract class CoreBaseEntity extends AuditEntity {
   @PrimaryColumn({
     default: () => "uuid_generate_v1mc()",
     type: "uuid",
@@ -14,7 +14,7 @@ export abstract class BaseEntity extends AuditEntity {
 }
 
 @InputType()
-export class BaseInput {
+export class CoreBaseInput {
   @Field({ nullable: true }) id: string;
   @Field() createdBy: string;
 }
